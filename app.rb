@@ -17,8 +17,13 @@ get '/animals' do
   'zebra and penguins are black and white!'
 end
 
-get '/cat' do
-  "<div style='border: 5px dotted blue'>
-   <img src='https://i.pinimg.com/originals/a1/e5/1a/a1e51a25bf08b1a104a6625fe123f388.jpg'>
-  </div>"
+get '/random-cat' do
+  @name =["Sharkfin", "Snoopy", "Tigger"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params # prints a hash on the terminal
+  @name = params[:name]
+  erb(:index)
 end
